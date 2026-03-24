@@ -18,14 +18,6 @@ services:
     environment:
       - NFS_BACKEND=${NFS_BACKEND}
       - CODESPACES=${CODESPACES}
-      - NFS_WIREGUARD_SERVER_PORT=${NFS_WIREGUARD_SERVER_PORT:-51820}
-      - NFS_WIREGUARD_SERVER_HOST=${NFS_WIREGUARD_SERVER_HOST:-bbrodriguez.vegito.app}
-
-    command: |
-      bash -c '
-      # sudo tcpdump -ni wg0 | tee /state/wg0-tcpdump.log &
-      # sudo tcpdump -ni wg-pdc-client | tee /state/wg-pdc-client-tcpdump.log &
-      # sudo tcpdump -ni eth0 | tee /state/eth0-tcpdump.log &
-      # sudo tcpdump -ni lo | tee /state/lo-tcpdump.log &
-      sleep infinity
-      '
+      - WG_SUBNET=${WG_SUBNET}
+      - NFS_WIREGUARD_BRIDGE_SERVER_PORT=${NFS_WIREGUARD_BRIDGE_SERVER_PORT:-51820}
+      - NFS_WIREGUARD_BRIDGE_SERVER_HOST=${NFS_WIREGUARD_BRIDGE_SERVER_HOST:-bbrodriguez.vegito.app}
