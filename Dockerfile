@@ -65,7 +65,7 @@ COPY nfs/nfs-start-ganesha.sh /usr/local/bin/
 COPY wg-client-connect.sh   /usr/local/bin/
 COPY wg-server-start.sh     /usr/local/bin/
 COPY wg-show.sh             /usr/local/bin/
-COPY entrypoint.sh          /usr/local/bin/
+COPY container-start.sh     /usr/local/bin/nfs-wireguard-bridge-start.sh
 
 # --- Ganesha configs for GitHub Codespaces ---
 COPY nfs/ganesha/ganesha-github-codespaces.conf /etc/ganesha/ganesha-github-codespaces.conf
@@ -78,4 +78,4 @@ RUN sudo chmod +x /usr/local/bin/*.sh
 
 EXPOSE 51820/udp
 
-ENTRYPOINT ["entrypoint.sh"]
+CMD ["nfs-wireguard-bridge-start.sh"]

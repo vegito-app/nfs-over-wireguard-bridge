@@ -43,21 +43,14 @@ fi
 case "$NFS_BACKEND" in
   ganesha)
     echo "🌐 Using NFS-Ganesha (userland)"
-    exec sudo -E nfs-start-ganesha.sh &
+    sudo -E nfs-start-ganesha.sh
     ;;
   kernel)
     echo "🖥️ Using kernel NFS server"
-    exec nfs-start.sh
+    nfs-start.sh
     ;;
   *)
     echo "❌ Unknown NFS_BACKEND=$NFS_BACKEND"
     exit 1
     ;;
 esac
-
-if [ $# -eq 0 ]; then
-  echo "[entrypoint] No command passed, entering sleep infinity to keep container alive"
-  wait ${bg_pids[@]}
-else
-  exec "$@"
-fi
