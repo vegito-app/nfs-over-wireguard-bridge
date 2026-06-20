@@ -65,6 +65,7 @@ cat > "${STATE_DIR}/macbook.conf" <<EOF
 [Interface]
 PrivateKey = ${CLIENT_MACBOOK_PRIV_KEY}
 Address = ${WG_CLIENT_MACBOOK_IP}/24
+DNS = 10.5.5.7
 
 [Peer]
 PublicKey = ${SERVER_PUB_KEY}
@@ -86,6 +87,7 @@ cat > "${STATE_DIR}/iphone6s.conf" <<EOF
 [Interface]
 PrivateKey = ${CLIENT_IPHONE6S_PRIV_KEY}
 Address = ${WG_CLIENT_IPHONE6S_IP}/24
+DNS = 10.5.5.7
 
 [Peer]
 PublicKey = ${SERVER_PUB_KEY}
@@ -97,4 +99,3 @@ EOF
 echo "--------------------------------------------"
 echo "📋 Configuration WireGuard client prête !"
 echo "=== READY === (WireGuard) ==="
-
